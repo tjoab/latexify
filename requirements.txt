@@ -1,0 +1,6 @@
+numpy
+pycairo
+Pillow
+transformers
+evaluate
+jiwer

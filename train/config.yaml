@@ -1,0 +1,22 @@
+model_name: microsoft/trocr-base-handwritten
+data_dir: ../data/
+
+batch_size: 8
+grad_accumulation: 8
+learning_rate: 5e-5
+warmup_steps: 1000
+
+perform_logs: false
+log_dir: ./logs/
+log_freq: 256
+
+perform_save: false
+save_dir: ./final/
+
+perform_checkpoints: false
+checkpoint_dir: ./checkpoints/
+checkpoint_freq: 12288
+load_from_checkpoint: false
+checkpoint_name: checkpoint_step_12288.pth
+
+random_seed: 1
