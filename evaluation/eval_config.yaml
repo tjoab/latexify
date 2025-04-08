@@ -1,0 +1,8 @@
+# Note that all paths in this file must be relative to the ROOT
+# of the PROJECT directory, NOT relative to this YAML file
+
+model_name: tjoab/latex_finetuned
+data_dir: ./data/mathwriting-2024-excerpt/test/
+
+batch_size: 8
+max_gen_length: 128

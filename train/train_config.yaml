@@ -1,5 +1,8 @@
+# Note that all paths in this file must be relative to the ROOT
+# of the PROJECT directory, NOT relative to this YAML file
+
 model_name: microsoft/trocr-base-handwritten
-data_dir: ../data/
+data_dir: ./data/mathwriting-2024-excerpt/train/
 
 batch_size: 8
 grad_accumulation: 8
@@ -7,14 +10,13 @@ learning_rate: 5e-5
 warmup_steps: 1000
 
 perform_logs: false
-log_dir: ./logs/
-log_freq: 256
+log_dir: ./train/logs/
 
 perform_save: false
-save_dir: ./final/
+save_dir: ./train/tuned_model/
 
 perform_checkpoints: false
-checkpoint_dir: ./checkpoints/
+checkpoint_dir: ./train/checkpoints/
 checkpoint_freq: 12288
 load_from_checkpoint: false
 checkpoint_name: checkpoint_step_12288.pth

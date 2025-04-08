@@ -1,30 +1,48 @@
 import os
 import subprocess
 
+#TODO: Ensure works cross operating systems (dockerize)
+def download_and_extract_dataset(dataset_url: str, dest_dir: str) -> str:
+    """
+    Downloads and extracts a .tgz dataset from the given URL into the specified directory.
 
-#TODO: Remove the tar file
-#TODO: Clean up directories
-#TODO: Ensure works cross platform (dockerize?)
+    Parameters
+    ----------
+    dataset_url : str
+        URL to the .tgz file.
+    dest_dir : str
+        Directory to download and extract the dataset into.
 
-# full dataset: https://storage.googleapis.com/mathwriting_data/mathwriting-2024.tgz
-# excerpt dataset: https://storage.googleapis.com/mathwriting_data/mathwriting-2024-excerpt.tgz
-
-def download_and_extract_dataset(dataset_url, dest_dir):
+    Returns
+    -------
+    str
+        path to the new data directory
+    """
     
+    # Ensure parent directory exists
     os.makedirs(dest_dir, exist_ok=True)
-    
-    dataset_filename = os.path.basename(dataset_url)
-    dest_path = os.path.join(dest_dir, dataset_filename)
 
+    tgz_name = os.path.basename(dataset_url)
+    tgz_path = os.path.join(dest_dir, tgz_name)
 
-    if not os.path.exists(dest_path):
-        subprocess.run(["curl", "-L", dataset_url, "-o", dest_path], check=True)
+    # This is the path to the extracted folder
+    data_dir = tgz_path.removesuffix(".tgz")
 
-    subprocess.run(["tar", "zxf", dest_path, "-C", dest_dir], check=True)
+    # Only downloads and extracts if we havent already done so
+    if not os.path.exists(data_dir):
+        subprocess.run(["curl", "-L", dataset_url, "-o", tgz_path], check=True)
+        subprocess.run(["tar", "zxf", tgz_path, "-C", dest_dir], check=True)
+        os.remove(tgz_path)
 
-    data_dir = dest_path.strip('.tgz')
     return data_dir
 
+'''
+Example Usage
+-------------
+full_data_url = 'https://storage.googleapis.com/mathwriting_data/mathwriting-2024.tgz'
+partial_data_url = 'https://storage.googleapis.com/mathwriting_data/mathwriting-2024-excerpt.tgz'
 
-#print(download_and_extract_dataset('https://storage.googleapis.com/mathwriting_data/mathwriting-2024-excerpt.tgz', './data'))
+target_dir = './data'
 
+print(download_and_extract_dataset(partial_data_url, target_dir))
+'''
