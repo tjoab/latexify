@@ -12,6 +12,7 @@ STREAMLIT DEMO APP
 Note that all inference was done offline beforehand, this way no inference
 if being done online causing bog downs
 '''
+st.set_page_config(page_title="latexify", page_icon="🧠", initial_sidebar_state="collapsed")
 
 # Little HTML hack to left align the latex in its parent container
 st.markdown('''
@@ -39,7 +40,6 @@ path_latex_pairs = {
 # ---------------------------------------------
 # App begins
 # ---------------------------------------------
-st.set_page_config(page_title="latexify", page_icon="🧠", initial_sidebar_state="collapsed")
 st.markdown(
     """
     # 🧠✨ LaTeXify
