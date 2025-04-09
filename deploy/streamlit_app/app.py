@@ -26,13 +26,13 @@ unsafe_allow_html=True
 
 # Dictionary for data paths, labels and metrics
 path_latex_pairs = {
-    "static/diff.jpg": {"pred": "\\frac{d1}{dx}+\\frac{2}{5}y=0", 
+    "deploy/streamlit_app/static/diff.jpg": {"pred": "\\frac{d1}{dx}+\\frac{2}{5}y=0", 
                         "gt": "\\frac{dy}{dx}+\\frac{2}{5}y=0", 
                         "cer": 0.03571},
-    "static/integral.jpg": {"pred": "\\int_{-\\infty}^{\\infty}e^{-x^{2}}dx", 
+    "deploy/streamlit_app/static/integral.jpg": {"pred": "\\int_{-\\infty}^{\\infty}e^{-x^{2}}dx", 
                             "gt": "\\int_{-\\infty}^{\\infty}e^{-x^{2}}dx", 
                             "cer": 0.00},
-    "static/expectation.jpg": {"pred": "\\mathbb{E}[X]=\\sum_{i}x_{i}P(X=x)",
+    "deploy/streamlit_app/static/expectation.jpg": {"pred": "\\mathbb{E}[X]=\\sum_{i}x_{i}P(X=x)",
                             "gt": "\\mathbb{E}[X]=\\sum_{i}x_{i}P(X=x_{i})",  
                             "cer": 0.1081}
 }
