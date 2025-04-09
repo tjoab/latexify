@@ -4,3 +4,6 @@ Pillow
 transformers
 evaluate
 jiwer
+streamlit
+streamlit-image-select
+streamlit-extras
